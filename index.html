@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #333;">
+
+    <div id="icon-container" style="height: 10vh"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+    <script>
+        const container = document.getElementById('icon-container')
+        var animation = bodymovin.loadAnimation({
+            container: container,
+            path: 'assets/Logo_(1).json',
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+        });
+
+        container.addEventListener("mouseenter",function(){
+            animation.play();
+            animation.loop = true
+        })
+
+        container.addEventListener("mouseleave",function(){
+            animation.loop = false
+
+            animation.addEventListener("complete", function(){
+                animation.stop()
+            })
+        })
+    </script>
+</body>
+</html>
